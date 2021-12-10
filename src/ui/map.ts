@@ -101,6 +101,7 @@ export type MapOptions = {
   localIdeographFontFamily?: string;
   style: StyleSpecification | string;
   pitchWithRotate?: boolean;
+  accessToken: string;
 };
 
 // See article here: https://medium.com/terria/typescript-transforming-optional-properties-to-required-properties-that-may-be-undefined-7482cb4e1585
@@ -122,8 +123,8 @@ const defaultMaxPitch = 60;
 const maxPitchThreshold = 85;
 
 const defaultOptions = {
-    center: [0, 0],
-    zoom: 0,
+    center: [116.39729, 39.908648],
+    zoom: 10,
     bearing: 0,
     pitch: 0,
 
@@ -156,8 +157,9 @@ const defaultOptions = {
     renderWorldCopies: true,
     refreshExpiredTiles: true,
     maxTileCacheSize: null,
-    localIdeographFontFamily: 'sans-serif',
+    localIdeographFontFamily: 'sans-serif,PingFang SC,Microsoft YaHei,微软雅黑,Arial,sans-serif,黑体',
     transformRequest: null,
+    accessToken: null,
     fadeDuration: 300,
     crossSourceCollisions: true
 } as CompleteMapOptions;
