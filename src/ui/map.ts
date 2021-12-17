@@ -1440,7 +1440,7 @@ class Map extends Camera {
       diff?: boolean;
     } & StyleOptions) {
         if (typeof style === 'string') {
-            const url = style;
+            const url = this._requestManager.normalizeStyleURL(style);
             const request = this._requestManager.transformRequest(url, ResourceType.Style);
             getJSON(request, (error?: Error | null, json?: any | null) => {
                 if (error) {
