@@ -1,6 +1,6 @@
 import Point from '../util/point';
 
-import mvt from '@mapbox/vector-tile';
+import mvt from '@cgcs2000/vector-tile';
 import type {VectorTileFeature, VectorTileLayer, VectorTile} from '@mapbox/vector-tile';
 const toGeoJSON = mvt.VectorTileFeature.prototype.toGeoJSON;
 import EXTENT from '../data/extent';

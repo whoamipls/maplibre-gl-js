@@ -56,7 +56,7 @@ class Transform {
 
     constructor(minZoom?: number, maxZoom?: number, minPitch?: number, maxPitch?: number, renderWorldCopies?: boolean) {
         this.tileSize = 512; // constant
-        this.maxValidLatitude = 85.051129; // constant
+        this.maxValidLatitude = 90; // constant
 
         this._renderWorldCopies = renderWorldCopies === undefined ? true : !!renderWorldCopies;
         this._minZoom = minZoom || 0;

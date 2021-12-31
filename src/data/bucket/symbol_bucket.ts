@@ -26,7 +26,7 @@ import {allowsVerticalWritingMode, stringContainsRTLText} from '../../util/scrip
 import {WritingMode} from '../../symbol/shaping';
 import loadGeometry from '../load_geometry';
 import toEvaluationFeature from '../evaluation_feature';
-import mvt from '@mapbox/vector-tile';
+import mvt from '@cgcs2000/vector-tile';
 const vectorTileFeatureTypes = mvt.VectorTileFeature.types;
 import {verticalizedCharacterMap} from '../../util/verticalize_punctuation';
 import Anchor from '../../symbol/anchor';

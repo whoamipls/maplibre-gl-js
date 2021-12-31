@@ -5,7 +5,7 @@ import EXTENT from './extent';
 import featureFilter from '../style-spec/feature_filter';
 import TransferableGridIndex from 'grid-index';
 import DictionaryCoder from '../util/dictionary_coder';
-import vt from '@mapbox/vector-tile';
+import vt from '@cgcs2000/vector-tile';
 import Protobuf from 'pbf';
 import GeoJSONFeature from '../util/vectortile_to_geojson';
 import {arraysIntersect, mapObject, extend} from '../util/util';
@@ -23,7 +23,7 @@ import type {FeatureFilter} from '../style-spec/feature_filter';
 import type Transform from '../geo/transform';
 import type {FilterSpecification, PromoteIdSpecification} from '../style-spec/types';
 import type {FeatureState} from '../style-spec/expression';
-import type {VectorTileFeature, VectorTileLayer} from '@mapbox/vector-tile';
+import type {VectorTileFeature, VectorTileLayer} from '@cgcs2000/vector-tile';
 
 type QueryParameters = {
   scale: number;

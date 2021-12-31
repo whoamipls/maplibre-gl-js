@@ -50,6 +50,7 @@ class VectorTileSource extends Evented implements Source {
     scheme: string;
     tileSize: number;
     promoteId: PromoteIdSpecification;
+    zoomOffset: number;
 
     _options: VectorSourceSpecification;
     _collectResourceTiming: boolean;
@@ -75,11 +76,12 @@ class VectorTileSource extends Evented implements Source {
         this.maxzoom = 22;
         this.scheme = 'xyz';
         this.tileSize = 512;
+        this.zoomOffset = 0;
         this.reparseOverscaled = true;
         this.isTileClipped = true;
         this._loaded = false;
 
-        extend(this, pick(options, ['url', 'scheme', 'tileSize', 'promoteId']));
+        extend(this, pick(options, ['url', 'scheme', 'tileSize', 'promoteId', 'zoomOffset']));
         this._options = extend({type: 'vector'}, options);
 
         this._collectResourceTiming = options.collectResourceTiming;
@@ -178,7 +180,7 @@ class VectorTileSource extends Evented implements Source {
     }
 
     loadTile(tile: Tile, callback: Callback<void>) {
-        const url = tile.tileID.canonical.url(this.tiles, this.scheme);
+        const url = tile.tileID.canonical.url(this.tiles, this.scheme, this.zoomOffset);
         const params = {
             request: this.map._requestManager.transformRequest(url, ResourceType.Tile),
             uid: tile.uid,
