@@ -7,8 +7,8 @@ const {BUILD, MINIFY} = process.env;
 const minified = MINIFY === 'true';
 const production = BUILD === 'production';
 const outputFile =
-    !production ? 'dist/maplibre-gl-dev.js' :
-    minified ? 'dist/maplibre-gl.js' : 'dist/maplibre-gl-unminified.js';
+    !production ? 'dist/mapabc-gl-dev.js' :
+    minified ? 'dist/mapabc-gl.js' : 'dist/mapabc-gl-unminified.js';
 
 export default [{
     // Before rollup you should run build-tsc to transpile from typescript to javascript

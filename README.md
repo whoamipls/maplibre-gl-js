@@ -73,3 +73,11 @@ Please keep in mind: Unauthorized backports are the biggest threat to the MapLib
 ## License
 
 **MapLibre GL** is licensed under the [3-Clause BSD license](./LICENSE.txt).
+
+编译后 maplibre-gl.js 中需要添加：
+if(mapabcgl && api_config){
+  mapabcgl.config.API_URL = api_config.url;
+  mapabcgl.config.TRAFFIC_SOURCE = api_config.traffic_source;
+  mapabcgl.config.DEBUG = false;
+  mapabcgl.accessToken='ec85d3648154874552835438ac6a02b2';
+}
