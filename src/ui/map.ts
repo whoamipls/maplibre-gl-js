@@ -256,7 +256,7 @@ const defaultOptions = {
  * @param {boolean} [options.crossSourceCollisions=true] If `true`, symbols from multiple sources can collide with each other during collision detection. If `false`, collision detection is run separately for the symbols in each source.
  * @param {Object} [options.locale=null] A patch to apply to the default localization table for UI strings, e.g. control tooltips. The `locale` object maps namespaced UI string IDs to translated strings in the target language; see `src/ui/default_locale.js` for an example with all supported string IDs. The object may specify all UI strings (thereby adding support for a new translation) or only a subset of strings (thereby patching the default translation table).
  * @example
- * var map = new maplibregl.Map({
+ * var map = new mapabcgl.Map({
  *   container: 'map',
  *   center: [-122.420679, 37.772537],
  *   zoom: 13,
@@ -517,7 +517,7 @@ class Map extends Camera {
      * @returns {Map} `this`
      * @example
      * // Add zoom and rotation controls to the map.
-     * map.addControl(new maplibregl.NavigationControl());
+     * map.addControl(new mapabcgl.NavigationControl());
      * @see [Display map navigation controls](https://maplibre.org/maplibre-gl-js-docs/example/navigation/)
      */
     addControl(control: IControl, position?: ControlPosition) {
@@ -551,7 +551,7 @@ class Map extends Camera {
      * @returns {Map} `this`
      * @example
      * // Define a new navigation control.
-     * var navigation = new maplibregl.NavigationControl();
+     * var navigation = new mapabcgl.NavigationControl();
      * // Add zoom and rotation controls to the map.
      * map.addControl(navigation);
      * // Remove zoom and rotation controls from the map.
@@ -575,7 +575,7 @@ class Map extends Camera {
      * @returns {boolean} True if map contains control.
      * @example
      * // Define a new navigation control.
-     * var navigation = new maplibregl.NavigationControl();
+     * var navigation = new mapabcgl.NavigationControl();
      * // Add zoom and rotation controls to the map.
      * map.addControl(navigation);
      * // Check that the navigation control exists on the map.
@@ -1048,7 +1048,7 @@ class Map extends Camera {
      * // Set an event listener that will fire
      * // when a feature on the countries layer of the map is clicked
      * map.on('click', 'countries', function(e) {
-     *   new maplibregl.Popup()
+     *   new mapabcgl.Popup()
      *     .setLngLat(e.lngLat)
      *     .setHTML(`Country name: ${e.features[0].properties.name}`)
      *     .addTo(map);
@@ -2815,14 +2815,14 @@ class Map extends Camera {
 
     _setupContainer() {
         const container = this._container;
-        container.classList.add('maplibregl-map', 'mapboxgl-map');
+        container.classList.add('mapabcgl-map', 'mapboxgl-map');
 
-        const canvasContainer = this._canvasContainer = DOM.create('div', 'maplibregl-canvas-container mapboxgl-canvas-container', container);
+        const canvasContainer = this._canvasContainer = DOM.create('div', 'mapabcgl-canvas-container mapboxgl-canvas-container', container);
         if (this._interactive) {
-            canvasContainer.classList.add('maplibregl-interactive', 'mapboxgl-interactive');
+            canvasContainer.classList.add('mapabcgl-interactive', 'mapboxgl-interactive');
         }
 
-        this._canvas = DOM.create('canvas', 'maplibregl-canvas mapboxgl-canvas', canvasContainer);
+        this._canvas = DOM.create('canvas', 'mapabcgl-canvas mapboxgl-canvas', canvasContainer);
         this._canvas.addEventListener('webglcontextlost', this._contextLost, false);
         this._canvas.addEventListener('webglcontextrestored', this._contextRestored, false);
         this._canvas.setAttribute('tabindex', '0');
@@ -2832,10 +2832,10 @@ class Map extends Camera {
         const dimensions = this._containerDimensions();
         this._resizeCanvas(dimensions[0], dimensions[1]);
 
-        const controlContainer = this._controlContainer = DOM.create('div', 'maplibregl-control-container mapboxgl-control-container', container);
+        const controlContainer = this._controlContainer = DOM.create('div', 'mapabcgl-control-container mapboxgl-control-container', container);
         const positions = this._controlPositions = {};
         ['top-left', 'top-right', 'bottom-left', 'bottom-right'].forEach((positionName) => {
-            positions[positionName] = DOM.create('div', `maplibregl-ctrl-${positionName} mapboxgl-ctrl-${positionName}`, controlContainer);
+            positions[positionName] = DOM.create('div', `mapabcgl-ctrl-${positionName} mapboxgl-ctrl-${positionName}`, controlContainer);
         });
 
         this._container.addEventListener('scroll', this._onMapScroll, false);
@@ -3141,7 +3141,7 @@ class Map extends Camera {
         if (extension) extension.loseContext();
         DOM.remove(this._canvasContainer);
         DOM.remove(this._controlContainer);
-        this._container.classList.remove('maplibregl-map', 'mapboxgl-map');
+        this._container.classList.remove('mapabcgl-map', 'mapboxgl-map');
 
         PerformanceUtils.clearMetrics();
 

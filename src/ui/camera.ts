@@ -110,6 +110,7 @@ export type AnimationOptions = {
   offset?: PointLike;
   animate?: boolean;
   essential?: boolean;
+  noMoveStart?: boolean;
 };
 
 abstract class Camera extends Evented {

@@ -7,7 +7,7 @@ import type Map from '../map';
  *
  * Controls must implement `onAdd` and `onRemove`, and must own an
  * element, which is often a `div` element. To use Mapbox GL JS's
- * default control styling, add the `maplibregl-ctrl` class to your control's
+ * default control styling, add the `mapabcgl-ctrl` class to your control's
  * node.
  *
  * @interface IControl
@@ -17,7 +17,7 @@ import type Map from '../map';
  *     onAdd(map) {
  *         this._map = map;
  *         this._container = document.createElement('div');
- *         this._container.className = 'maplibregl-ctrl';
+ *         this._container.className = 'mapabcgl-ctrl';
  *         this._container.textContent = 'Hello, world';
  *         return this._container;
  *     }
@@ -34,7 +34,7 @@ import type Map from '../map';
  * HelloWorldControl.prototype.onAdd = function(map) {
  *     this._map = map;
  *     this._container = document.createElement('div');
- *     this._container.className = 'maplibregl-ctrl';
+ *     this._container.className = 'mapabcgl-ctrl';
  *     this._container.textContent = 'Hello, world';
  *     return this._container;
  * };

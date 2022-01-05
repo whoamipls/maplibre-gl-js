@@ -17,8 +17,8 @@ type AttributionOptions = {
  * @param {boolean} [options.compact] If `true`, force a compact attribution that shows the full attribution on mouse hover. If `false`, force the full attribution control. The default is a responsive attribution that collapses when the map is less than 640 pixels wide. **Attribution should not be collapsed if it can comfortably fit on the map. `compact` should only be used to modify default attribution when map size makes it impossible to fit [default attribution](https://docs.mapbox.com/help/how-mapbox-works/attribution/) and when the automatic compact resizing for default settings are not sufficient.**
  * @param {string | Array<string>} [options.customAttribution] String or strings to show in addition to any other attributions.
  * @example
- * var map = new maplibregl.Map({attributionControl: false})
- *     .addControl(new maplibregl.AttributionControl({
+ * var map = new mapabcgl.Map({attributionControl: false})
+ *     .addControl(new mapabcgl.AttributionControl({
  *         compact: true
  *     }));
  */
@@ -51,14 +51,14 @@ class AttributionControl implements IControl {
         const compact = this.options && this.options.compact;
 
         this._map = map;
-        this._container = DOM.create('details', 'maplibregl-ctrl maplibregl-ctrl-attrib mapboxgl-ctrl mapboxgl-ctrl-attrib');
-        this._compactButton = DOM.create('summary', 'maplibregl-ctrl-attrib-button mapboxgl-ctrl-attrib-button', this._container);
+        this._container = DOM.create('details', 'mapabcgl-ctrl mapabcgl-ctrl-attrib mapboxgl-ctrl mapboxgl-ctrl-attrib');
+        this._compactButton = DOM.create('summary', 'mapabcgl-ctrl-attrib-button mapboxgl-ctrl-attrib-button', this._container);
         this._compactButton.addEventListener('click', this._toggleAttribution);
         this._setElementTitle(this._compactButton, 'ToggleAttribution');
-        this._innerContainer = DOM.create('div', 'maplibregl-ctrl-attrib-inner mapboxgl-ctrl-attrib-inner', this._container);
+        this._innerContainer = DOM.create('div', 'mapabcgl-ctrl-attrib-inner mapboxgl-ctrl-attrib-inner', this._container);
 
         if (compact) {
-            this._container.classList.add('maplibregl-compact', 'mapboxgl-compact');
+            this._container.classList.add('mapabcgl-compact', 'mapboxgl-compact');
         } else {
             this._container.setAttribute('open', '');
         }
@@ -94,10 +94,10 @@ class AttributionControl implements IControl {
     }
 
     _toggleAttribution() {
-        if (this._container.classList.contains('maplibregl-compact-show') || this._container.classList.contains('mapboxgl-compact-show')) {
-            this._container.classList.remove('maplibregl-compact-show', 'mapboxgl-compact-show');
+        if (this._container.classList.contains('mapabcgl-compact-show') || this._container.classList.contains('mapboxgl-compact-show')) {
+            this._container.classList.remove('mapabcgl-compact-show', 'mapboxgl-compact-show');
         } else {
-            this._container.classList.add('maplibregl-compact-show', 'mapboxgl-compact-show');
+            this._container.classList.add('mapabcgl-compact-show', 'mapboxgl-compact-show');
         }
     }
 
@@ -158,9 +158,9 @@ class AttributionControl implements IControl {
 
         if (attributions.length) {
             this._innerContainer.innerHTML = attribHTML;
-            this._container.classList.remove('maplibregl-attrib-empty', 'mapboxgl-attrib-empty');
+            this._container.classList.remove('mapabcgl-attrib-empty', 'mapboxgl-attrib-empty');
         } else {
-            this._container.classList.add('maplibregl-attrib-empty', 'mapboxgl-attrib-empty');
+            this._container.classList.add('mapabcgl-attrib-empty', 'mapboxgl-attrib-empty');
         }
         // remove old DOM node from _editLink
         this._editLink = null;
@@ -168,9 +168,9 @@ class AttributionControl implements IControl {
 
     _updateCompact() {
         if (this._map.getCanvasContainer().offsetWidth <= 640) {
-            this._container.classList.add('maplibregl-compact', 'mapboxgl-compact');
+            this._container.classList.add('mapabcgl-compact', 'mapboxgl-compact');
         } else {
-            this._container.classList.remove('maplibregl-compact', 'maplibregl-compact-show', 'mapboxgl-compact', 'mapboxgl-compact-show');
+            this._container.classList.remove('mapabcgl-compact', 'mapabcgl-compact-show', 'mapboxgl-compact', 'mapboxgl-compact-show');
         }
     }
 

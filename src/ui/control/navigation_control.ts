@@ -28,7 +28,7 @@ const defaultOptions: NavigationOptions = {
  * @param {Boolean} [options.showZoom=true] If `true` the zoom-in and zoom-out buttons are included.
  * @param {Boolean} [options.visualizePitch=false] If `true` the pitch is visualized by rotating X-axis of compass.
  * @example
- * var nav = new maplibregl.NavigationControl();
+ * var nav = new mapabcgl.NavigationControl();
  * map.addControl(nav, 'top-left');
  * @see [Display map navigation controls](https://maplibre.org/maplibre-gl-js-docs/example/navigation/)
  * @see [Add a third party vector tile source](https://maplibre.org/maplibre-gl-js-docs/example/third-party/)
@@ -46,7 +46,7 @@ class NavigationControl implements IControl {
     constructor(options: NavigationOptions) {
         this.options = extend({}, defaultOptions, options);
 
-        this._container = DOM.create('div', 'maplibregl-ctrl maplibregl-ctrl-group mapboxgl-ctrl mapboxgl-ctrl-group');
+        this._container = DOM.create('div', 'mapabcgl-ctrl mapabcgl-ctrl-group mapboxgl-ctrl mapboxgl-ctrl-group');
         this._container.addEventListener('contextmenu', (e) => e.preventDefault());
 
         if (this.options.showZoom) {
@@ -54,23 +54,23 @@ class NavigationControl implements IControl {
                 '_setButtonTitle',
                 '_updateZoomButtons'
             ], this);
-            this._zoomInButton = this._createButton('maplibregl-ctrl-zoom-in mapboxgl-ctrl-zoom-in', (e) => this._map.zoomIn({}, {originalEvent: e}));
-            DOM.create('span', 'maplibregl-ctrl-icon mapboxgl-ctrl-icon', this._zoomInButton).setAttribute('aria-hidden', 'true');
-            this._zoomOutButton = this._createButton('maplibregl-ctrl-zoom-out mapboxgl-ctrl-zoom-out', (e) => this._map.zoomOut({}, {originalEvent: e}));
-            DOM.create('span', 'maplibregl-ctrl-icon mapboxgl-ctrl-icon', this._zoomOutButton).setAttribute('aria-hidden', 'true');
+            this._zoomInButton = this._createButton('mapabcgl-ctrl-zoom-in mapboxgl-ctrl-zoom-in', (e) => this._map.zoomIn({}, {originalEvent: e}));
+            DOM.create('span', 'mapabcgl-ctrl-icon mapboxgl-ctrl-icon', this._zoomInButton).setAttribute('aria-hidden', 'true');
+            this._zoomOutButton = this._createButton('mapabcgl-ctrl-zoom-out mapboxgl-ctrl-zoom-out', (e) => this._map.zoomOut({}, {originalEvent: e}));
+            DOM.create('span', 'mapabcgl-ctrl-icon mapboxgl-ctrl-icon', this._zoomOutButton).setAttribute('aria-hidden', 'true');
         }
         if (this.options.showCompass) {
             bindAll([
                 '_rotateCompassArrow'
             ], this);
-            this._compass = this._createButton('maplibregl-ctrl-compass mapboxgl-ctrl-compass', (e) => {
+            this._compass = this._createButton('mapabcgl-ctrl-compass mapboxgl-ctrl-compass', (e) => {
                 if (this.options.visualizePitch) {
                     this._map.resetNorthPitch({}, {originalEvent: e});
                 } else {
                     this._map.resetNorth({}, {originalEvent: e});
                 }
             });
-            this._compassIcon = DOM.create('span', 'maplibregl-ctrl-icon mapboxgl-ctrl-icon', this._compass);
+            this._compassIcon = DOM.create('span', 'mapabcgl-ctrl-icon mapboxgl-ctrl-icon', this._compass);
             this._compassIcon.setAttribute('aria-hidden', 'true');
         }
     }

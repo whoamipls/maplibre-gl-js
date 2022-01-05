@@ -4,6 +4,7 @@ import assert from 'assert';
 import {supported} from '@mapbox/mapbox-gl-supported';
 
 import Map from './ui/map';
+import NavControl from './ui/control/nav_control';
 import NavigationControl from './ui/control/navigation_control';
 import GeolocateControl from './ui/control/geolocate_control';
 import AttributionControl from './ui/control/attribution_control';
@@ -33,6 +34,7 @@ const exported = {
     setRTLTextPlugin,
     getRTLTextPluginStatus,
     Map,
+    NavControl,
     NavigationControl,
     GeolocateControl,
     AttributionControl,
