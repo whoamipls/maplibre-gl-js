@@ -24,7 +24,7 @@ const defaultOptions: ScaleOptions = {
  * @param {number} [options.maxWidth='100'] The maximum length of the scale control in pixels.
  * @param {string} [options.unit='metric'] Unit of the distance (`'imperial'`, `'metric'` or `'nautical'`).
  * @example
- * var scale = new maplibregl.ScaleControl({
+ * var scale = new mapabcgl.ScaleControl({
  *     maxWidth: 80,
  *     unit: 'imperial'
  * });
@@ -56,7 +56,7 @@ class ScaleControl implements IControl {
 
     onAdd(map: Map) {
         this._map = map;
-        this._container = DOM.create('div', 'maplibregl-ctrl maplibregl-ctrl-scale mapboxgl-ctrl mapboxgl-ctrl-scale', map.getContainer());
+        this._container = DOM.create('div', 'mapabcgl-ctrl mapabcgl-ctrl-scale mapboxgl-ctrl mapboxgl-ctrl-scale', map.getContainer());
 
         this._map.on('move', this._onMove);
         this._onMove();

@@ -12,7 +12,7 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "types": "dist/maplibre-gl.d.ts",
+  "types": "dist/mapabc-gl.d.ts",
   "type": "module",
   "dependencies": {
     "@mapbox/geojson-rewind": "^0.5.0",
@@ -183,7 +183,7 @@
     "build-prod-min": "npm run build-tsc-min && rollup -c --environment BUILD:production,MINIFY:true",
     "build-csp": "rollup -c rollup.config.csp.js",
     "build-query-suite": "rollup -c test/integration/rollup.config.test.js",
-    "build-css": "postcss -o dist/maplibre-gl.css src/css/maplibre-gl.css",
+    "build-css": "postcss -o dist/mapabc-gl.css src/css/maplibre-gl.css",
     "build-style-spec": "npm run build-tsc && rollup -c rollup.config.style-spec.js && rollup -c rollup.config.style-spec.js --environment esm",
     "build-diagrams": "cd docs/diagrams; ls *.plantuml | xargs -I {} puml generate --svg {} -o {}.svg",
     "watch-css": "postcss --watch -o dist/maplibre-gl.css src/css/maplibre-gl.css",

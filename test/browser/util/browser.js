@@ -50,7 +50,7 @@ async function getMapCanvas(url) {
         }
     });
 
-    return browser.driver.findElement(By.className('maplibregl-canvas mapboxgl-canvas'));
+    return browser.driver.findElement(By.className('mapabcgl-canvas mapboxgl-canvas'));
 }
 
 let server = null;

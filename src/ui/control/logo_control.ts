@@ -23,8 +23,8 @@ class LogoControl implements IControl {
 
     onAdd(map: Map) {
         this._map = map;
-        this._container = DOM.create('div', 'maplibregl-ctrl mapboxgl-ctrl');
-        const anchor = DOM.create('a', 'maplibregl-ctrl-logo mapboxgl-ctrl-logo');
+        this._container = DOM.create('div', 'mapabcgl-ctrl mapboxgl-ctrl');
+        const anchor = DOM.create('a', 'mapabcgl-ctrl-logo mapboxgl-ctrl-logo');
         anchor.target = '_blank';
         anchor.rel = 'noopener nofollow';
         anchor.href = 'https://maplibre.org/';
@@ -77,9 +77,9 @@ class LogoControl implements IControl {
         if (containerChildren.length) {
             const anchor = containerChildren[0];
             if (this._map.getCanvasContainer().offsetWidth < 250) {
-                anchor.classList.add('maplibregl-compact', 'mapboxgl-compact');
+                anchor.classList.add('mapabcgl-compact', 'mapboxgl-compact');
             } else {
-                anchor.classList.remove('maplibregl-compact', 'mapboxgl-compact');
+                anchor.classList.remove('mapabcgl-compact', 'mapboxgl-compact');
             }
         }
     }
